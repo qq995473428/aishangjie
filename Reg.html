@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/flexible.debug.js"></script>
+    <script src="./js/LAreaData1.js"></script>
+    <script src="./js/LAreaData2.js"></script>
+    <script src="./js/LArea.js"></script>
+    <link rel="stylesheet" href="./css/LArea.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>注册</title>
+</head>
+
+<body>
+    <!-- 提示框 -->
+    <div class="message">
+        <div class="message-box">
+            <div class="ps">
+                <img src="./images/mark.png" alt=""><span>提示</span>
+            </div>
+            <div class="message-text">若想更换手机号码，直接使用新号码关注金海豹公众号进行此业务办理，给您带来的不便尽请谅解</div>
+            <div class="know">
+                <button onclick="hideMessage()">我知道了</button>
+            </div>
+        </div>
+    </div>
+    <div class="camp-box isShow">
+        <div class="showbox">
+            <div class="boxtop">
+                <div class="box-left">主营类目</div>
+                <div class="box-right"><span onclick="addValue()">确定</span></div>
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    <ul class="left-item">
+
+                    </ul>
+                </div>
+                <div class="content-right">
+                   <div class="item1 ">
+                    <ul class="right-item isborder">
+                        <li><i class="icon-gou">&#10003;</i>中式餐饮</li>
+                        <li><i class="icon-gou">&#10003;</i>港式餐饮</li>
+                        <li><i class="icon-gou">&#10003;</i>美式餐饮</li>
+                        <li><i class="icon-gou">&#10003;</i>中式餐饮</li>
+                    </ul>
+                   </div>
+                   <div class="item2 " style="display:none">
+                    <ul class="right-item isborder">
+                        <li><i class="icon-gou">&#10003;</i>泰式餐饮</li>
+                        <li><i class="icon-gou">&#10003;</i>没有饭</li>
+                        <li><i class="icon-gou">&#10003;</i>美式餐饮</li>
+                        <li><i class="icon-gou">&#10003;</i>中式餐饮</li>
+                    </ul>
+                   </div>
+                   
+                   
+
+                 
+                </div>
+                <div class="content-right" style="display:none">
+                       <div class="item1 ">
+                        <ul class="right-item">
+                            <li><i class="icon-gou">&#10003;</i>法式餐饮</li>
+                            <li><i class="icon-gou">&#10003;</i>美式餐饮</li>
+                            <li><i class="icon-gou">&#10003;</i>中式餐饮</li>
+                            <li><i class="icon-gou">&#10003;</i>中式餐饮</li>
+                        </ul>
+                       </div> 
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- 步骤1页面 -->
+
+    <div class="step">
+        <div class="step-center">
+            <ul>
+                <li class="line-one"></li>
+                <li class="line-two"></li>
+            </ul>
+            <div class="step-block">
+                <span>填写手机号</span>
+                <div class="circle-out light-green ">
+                    <div class="circle-in green">
+                        1
+                    </div>
+                </div>
+
+            </div>
+            <div class="step-block">
+                <span>资料收集</span>
+                <div class="circle-out">
+                    <div class="circle-in light-green">
+
+                    </div>
+                </div>
+            </div>
+            <div class="step-block">
+                <span>审核</span>
+                <div class="circle-out">
+                    <div class="circle-in light-green">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="step1">
+        <div class="tips">发送短信验证码到<span id="phone">12345678911</span> <span class="question">?</span></div>
+        <div class="white-in">
+            <form action="">
+                <input type="text" placeholder="请输入验证码" name="code" class="code"><input type="submit" value="获取验证码"
+                    class="getcode" onclick="clickButton(this)">
+            </form>
+        </div>
+        <div class="bottom">
+            <div class="btn">
+                <button onclick="Next()">下一步</button>
+                <div class="ag">
+                    <input type="radio" name="agreement" id="agreement"><span>我同意并遵守<a href="">《在街上收银账号服务协议》</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 步骤二页面 -->
+    <div class="step2">
+        <div class="master">
+            <form action="">
+                <div class="info1 oline">
+                    <label for="username">用户名称</label><input type="text" placeholder="6-20个数字和字母组成" name="username">
+                </div>
+                <div class="info1">
+                    <label for="shopname">店铺名称</label><input type="text" placeholder="请填写账号名称" name="shopname">
+                </div>
+            </form>
+        </div>
+        <div class="maincamp">
+            <form action="">
+                <div class="info1 oline">
+                    <label for="username">主营类目</label><input type="text" placeholder="请选择主营的类目" name="programe" readonly="readonly" id="programe"><span
+                        class="right-arrow" id="pro" onclick="isShow()"></span>
+                </div>
+                <div class="info1 oline specil">
+                    <label for="address">所在区域</label><input type="text" placeholder="- 省- 市- 区" name="address"
+                        id="address" readonly="readonly" /><input id="value1" type="hidden" value="20,234,504" /><span class="right-arrow"
+                        id="getArea"></span>
+                </div>
+                <div class="info1">
+                    <label for="detailaddress">详细地址</label><textarea name="detailaddress" id=""
+                        placeholder="请认真填写门店详细位置"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="complete">
+            <button>完成</button>
+        </div>
+    </div>
+</body>
+<script>
+    function clickButton(obj) {
+        var obj = $(obj);
+        obj.attr("disabled", "disabled");
+        $('.getcode').css("background",'gray');
+        var time = 60;
+        var set = setInterval(function () {
+            obj.val(--time + "(s)");
+        }, 1000);
+        setTimeout(function () {
+            $('.getcode').css("background",'#09BB07');
+            obj.attr("disabled", false).val("重新获取验证码");
+            clearInterval(set);
+        }, 60000);
+    }
+
+    function hideMessage() {
+        var message = document.getElementsByClassName('message')[0];
+        message.style.display = "none";
+    }
+
+    function Next() {
+        var step = document.getElementsByClassName('step1')[0];
+        var step2 = document.getElementsByClassName('step2')[0];
+        step.style.display = "none";
+        step2.style.display = "block";
+        document.title = "资料收集";
+        $('.circle-in').empty();
+        $('.circle-out').removeClass('light-green');
+        $('.step-block:eq(1) .circle-in').addClass('green');
+        $('.step-block:eq(1) .circle-out').addClass('light-green');
+        $('.step-block:eq(1) .circle-in').html('2');
+
+    }
+    var area1 = new LArea();
+
+    area1.init({
+        'trigger': '#address',
+        'valueTo': '#value1',
+        'keys': {
+            id: 'id',
+            name: 'name'
+        },
+        'type': 1,
+        'data': LAreaData
+    })
+  
+    $(function(){
+        var category = [{
+            id: 0,     
+            name: '美食'
+        },
+        {
+            id: 1,
+            name: '购物'
+        },
+        {
+            id: 2,
+            name: '生活服务'
+        },
+        {
+            id: 3,
+            name: '生活服务'
+        }
+    ];
+        for (var i = 0; i < category.length; i++) {
+            $('.content-left ul').append("<li>" + category[i].name + "</li>");
+             
+        }
+    })
+    function isShow() {
+        var isShow = document.getElementsByClassName('camp-box')[0];
+        isShow.style.display = 'block';
+        $('.showbox').animate({
+            bottom: '0'
+        }, 500);
+        
+        $('.left-item li:eq(0)').addClass('liactive');
+        $('.content-left ul li').click(function () {
+            $(this).addClass('liactive').siblings().removeClass('liactive');
+            var n=$('.content-left ul li').index(this);
+            $('.content-right').css('display','none');
+            $(".content-right").eq(n).css('display','block');
+          
+            
+            
+        });
+        
+        $('.content-right ul li').click(function () {
+        var n=$(this).index(n);
+ 
+        $('.content-right .item1,.item2').css('width','50%');
+        $('.content-right .item2').eq(n).css('display','block');
+       
+        $('.content-right .item1 li').each(function(){
+           
+                $('.content-right .item1 li i').removeClass('showIcon');
+               
+            
+        })
+       
+        $(this).find('i').addClass('showIcon');
+        
+        
+    
+          
+        });
+       
+
+    }
+    function addValue(){
+        var isShow = document.getElementsByClassName('camp-box')[0];
+        isShow.style.display = 'none';
+        var firstVal=null;
+        var secondVal=null;
+        var list=$('.content-left ul li');
+        for(var i=0;i<list.length;i++){
+            if($('.content-left ul li ').eq(i).hasClass('liactive')){
+                firstVal= $('.content-left ul li ').eq(i).html()
+            }
+        }
+        var list2=$('.content-right .right-item li i');
+        for(var i=0; i<list2.length;i++){
+            if($('.content-right .right-item li i').eq(i).hasClass('showIcon')){
+                secondVal=$('.content-right .right-item li ').eq(i).text().slice(1);
+            }
+        }
+        $("#programe").val(firstVal+"-"+secondVal);
+    }
+</script>
+
+</html>
